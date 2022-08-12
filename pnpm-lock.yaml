@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@commitlint/cli': ^17.0.3
   '@commitlint/config-conventional': ^17.0.3
-  '@react-spring/web': ^9.5.2
+  '@react-spring/konva': ^9.5.2
   '@types/react': ^18.0.15
   '@types/react-dom': ^18.0.6
   '@typescript-eslint/eslint-plugin': ^5.32.0
@@ -29,7 +29,7 @@ specifiers:
   vite: ^3.0.0
 
 dependencies:
-  '@react-spring/web': 9.5.2_biqbaboplfbrettd7655fr4n2y
+  '@react-spring/konva': 9.5.2_ovtb7fmpcan46ougpfjgqj46q4
   konva: 8.3.11
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -642,6 +642,22 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-spring/konva/9.5.2_ovtb7fmpcan46ougpfjgqj46q4:
+    resolution: {integrity: sha512-FN8LpbGQtm2pllU9mOyYjYwvLtA9EiIPWk2NVuhhX+5lJZrdCWuEY7EyFpK8PtgZXBdVj8bj7eIu1LlTnARW/A==}
+    peerDependencies:
+      konva: '>=2.6'
+      react: ^16.8.0  || >=17.0.0 || >=18.0.0
+      react-konva: ^16.8.0  || ^17.0.0
+    dependencies:
+      '@react-spring/animated': 9.5.2_react@18.2.0
+      '@react-spring/core': 9.5.2_react@18.2.0
+      '@react-spring/shared': 9.5.2_react@18.2.0
+      '@react-spring/types': 9.5.2
+      konva: 8.3.11
+      react: 18.2.0
+      react-konva: 18.2.1_uel6hhzoqo2hjgccwqrpxuypze
+    dev: false
+
   /@react-spring/rafz/9.5.2:
     resolution: {integrity: sha512-xHSRXKKBI/wDUkZGrspkOm4VlgN6lZi8Tw9Jzibp9QKf3neoof+U2mDNgklvnLaasymtUwAq9o4ZfFvQIVNgPQ==}
     dev: false
@@ -658,20 +674,6 @@ packages:
 
   /@react-spring/types/9.5.2:
     resolution: {integrity: sha512-n/wBRSHPqTmEd4BFWY6TeR1o/UY+3ujoqMxLjqy90CcY/ozJzDRuREL3c+pxMeTF2+B7dX33dTPCtFMX51nbxg==}
-    dev: false
-
-  /@react-spring/web/9.5.2_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-cusTjbOGTgtbsnpBDjb6Ia+B0lQLE0Fk5rGDog6Sww7hWnLIQ521PMiOBnAWtkntB9eXDUfj7L91nwJviEC0lw==}
-    peerDependencies:
-      react: ^16.8.0  || >=17.0.0 || >=18.0.0
-      react-dom: ^16.8.0  || >=17.0.0 || >=18.0.0
-    dependencies:
-      '@react-spring/animated': 9.5.2_react@18.2.0
-      '@react-spring/core': 9.5.2_react@18.2.0
-      '@react-spring/shared': 9.5.2_react@18.2.0
-      '@react-spring/types': 9.5.2
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /@tsconfig/node10/1.0.9:

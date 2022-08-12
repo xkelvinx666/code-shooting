@@ -1,17 +1,31 @@
-import { FC } from 'react';
-import {
-  Image,
-} from 'react-konva';
-import useImage from 'use-image';
-import femaleAdventurer0 from '../assets/kenney_tooncharacters1/Female adventurer/PNG/Poses HD/character_femaleAdventurer_run0.png';
+import { useMemo } from 'react';
+import { Image } from 'react-konva';
+import useImageFrame from '@/utils/hooks/image-frame';
+import useImportImage from '@/utils/hooks/import-image';
+import Status from '@/constants/characters/status';
 
-const Character: FC = () => {
-  const [charaImage] = useImage(femaleAdventurer0);
-  const onClick = () => {
-  };
-  return (
-    <Image image={charaImage} onClick={onClick} />
-  );
+const posesConfig: {[key: number]: Array<string>} = {
+  [Status.HOLD]: [
+    '../../assets/character/adventurer/Poses/adventurer_action1.png',
+    '../../assets/character/adventurer/Poses/adventurer_action2.png',
+  ],
+  [Status.RUNNING]: [
+    '../../assets/character/adventurer/Poses/adventurer_walk1.png',
+    '../../assets/character/adventurer/Poses/adventurer_walk2.png',
+  ],
 };
 
-export default Character;
+interface ICharacterProps {
+  name: string;
+  status: Status;
+}
+
+export default function Character({ name, status }: ICharacterProps) {
+  const images = useMemo<Array<string>>(() => posesConfig[status], [status]);
+  const image = useImageFrame(images);
+  const currentImage = useImportImage(image);
+
+  return (
+    <Image image={currentImage} />
+  );
+}
