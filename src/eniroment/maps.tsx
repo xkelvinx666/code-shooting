@@ -6,18 +6,18 @@ import Type from '@/constants/environment/type';
 
 const typeConfig: {[key: number]: Array<string>} = {
   [Type.DIRT]: [
-    '../../assets/environment/race-track/tileDirt.png',
+    '../../assets/environment/maps/game_background_1.png',
   ],
   [Type.GOO]: [
     '../../assets/environment/race-track/tileGoo.png',
   ],
 };
 
-interface ICharacterProps {
+interface IMapsProps {
   type: Type,
 }
 
-export default function RaceTrack({ type }: ICharacterProps) {
+export default function Maps({ type }: IMapsProps) {
   const images = useMemo<Array<string>>(() => typeConfig[type], [type]);
   const image = useImageFrame(images);
   const currentImage = useImportImage(image);
