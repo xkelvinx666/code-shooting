@@ -34,7 +34,6 @@ export default function Character({ name, status }: ICharacterProps) {
       x={dragX}
       y={dragY}
       onDragEnd={(e) => {
-        console.log(e);
         setDragX(e.target.x());
         setDragY(e.target.y());
       }}

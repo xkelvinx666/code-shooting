@@ -10,15 +10,19 @@
   },
   "dependencies": {
     "@react-spring/konva": "^9.5.2",
+    "@reduxjs/toolkit": "^1.8.4",
     "konva": "^8.3.11",
+    "lodash-es": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-konva": "^18.2.1",
+    "react-redux": "^8.0.2",
     "use-image": "^1.0.12"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
+    "@types/lodash-es": "^4.17.6",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
