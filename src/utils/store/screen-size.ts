@@ -1,4 +1,10 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+interface IScreenSize {
+  height: number;
+  width: number;
+  isHorizontal: boolean;
+}
 
 const screenSizeSlice = createSlice({
   name: 'screenSize',
@@ -7,10 +13,10 @@ const screenSizeSlice = createSlice({
       height: window.innerHeight,
       width: window.innerWidth,
       isHorizontal: window.innerHeight < window.innerWidth,
-    },
+    } as IScreenSize,
   },
   reducers: {
-    setSize: (state, action) => {
+    setSize: (state, action: PayloadAction<IScreenSize>) => {
       const { height, width, isHorizontal } = action.payload;
       // eslint-disable-next-line no-param-reassign
       state.value = {
@@ -22,7 +28,6 @@ const screenSizeSlice = createSlice({
   },
 });
 
-// Action creators are generated for each case reducer function
 export const { setSize } = screenSizeSlice.actions;
 
 export default screenSizeSlice.reducer;
