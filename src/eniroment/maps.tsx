@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Image } from 'react-konva';
-import useImageFrame from '@/utils/hooks/image-frame';
-import useImportImage from '@/utils/hooks/import-image';
-import Map from '@/constants/environment/map';
+import useImageFrame from '../utils/hooks/image-frame';
+import useImportImage from '../utils/hooks/import-image';
+import Map from '../constants/environment/map';
 
 const mapConfig: {[key: number]: Array<string>} = {
   [Map.DIRT]: [

@@ -1,8 +1,8 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { Image } from 'react-konva';
-import useImageFrame from '@/utils/hooks/image-frame';
-import useImportImage from '@/utils/hooks/import-image';
-import Status from '@/constants/characters/status';
+import useImageFrame from '../utils/hooks/image-frame';
+import useImportImage from '../utils/hooks/import-image';
+import Status from '../constants/characters/status';
 import { useAppDispatch } from '../utils/hooks/redux';
 import { setPlayerLocation } from '../utils/store/player';
 

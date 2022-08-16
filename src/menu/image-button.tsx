@@ -1,5 +1,5 @@
 import { Image } from 'react-konva';
-import useImportImage from '@/utils/hooks/import-image';
+import useImportImage from '../utils/hooks/import-image';
 
 interface IImageButtonProps {
   x: number;
