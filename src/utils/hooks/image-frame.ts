@@ -2,9 +2,8 @@ import {
   useState, useMemo, useEffect, useRef,
 } from 'react';
 
-function useImageFrame(images: Array<string>): undefined | string {
-  if (!Array.isArray(images) || images.length === 0) return;
-  const maxLen = images.length;
+function useImageFrame(images: Array<string>): string {
+  const maxLen = useMemo(() => images.length, [images]);
   const [imageIndex, setImageIndex] = useState<number>(0);
   const [lastRenderTimestamp, setLastRenderTimestamp] = useState<number>(0);
   const currentImage = useMemo<string>(() => images[imageIndex], [images, imageIndex]);

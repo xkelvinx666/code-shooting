@@ -1,7 +1,7 @@
 enum Status {
-  HOLD,
-  RUNNING,
-  DEAD,
+  READY,
+  WALK,
+  WIN,
 }
 
 export default Status;

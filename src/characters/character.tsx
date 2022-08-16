@@ -3,39 +3,56 @@ import { Image } from 'react-konva';
 import useImageFrame from '@/utils/hooks/image-frame';
 import useImportImage from '@/utils/hooks/import-image';
 import Status from '@/constants/characters/status';
+import { useAppDispatch } from '../utils/hooks/redux';
+import { setPlayerLocation } from '../utils/store/player';
 
 const posesConfig: {[key: number]: Array<string>} = {
-  [Status.HOLD]: [
-    '../../assets/character/adventurer/Poses/adventurer_action1.png',
-    '../../assets/character/adventurer/Poses/adventurer_action2.png',
+  [Status.READY]: [
+    '../../assets/character/adventurer/Poses/adventurer_hold1.png',
+    '../../assets/character/adventurer/Poses/adventurer_hold2.png',
   ],
-  [Status.RUNNING]: [
+  [Status.WALK]: [
     '../../assets/character/adventurer/Poses/adventurer_walk1.png',
     '../../assets/character/adventurer/Poses/adventurer_walk2.png',
+  ],
+  [Status.WIN]: [
+    '../../assets/character/adventurer/Poses/adventurer_cheer1.png',
+    '../../assets/character/adventurer/Poses/adventurer_cheer2.png',
   ],
 };
 
 interface ICharacterProps {
+  x: number;
+  y: number;
   name: string;
   status: Status;
 }
 
-export default function Character({ name, status }: ICharacterProps) {
+export default function Character({
+  x,
+  y,
+  name,
+  status,
+}: ICharacterProps) {
   const images = useMemo<Array<string>>(() => posesConfig[status], [status]);
-  const [dragX, setDragX] = useState<number>(0);
-  const [dragY, setDragY] = useState<number>(0);
   const image = useImageFrame(images);
   const currentImage = useImportImage(image);
+  const dispatch = useAppDispatch();
+  const handleDrag = (_x: number, _y: number) => {
+    dispatch(setPlayerLocation({
+      x: _x,
+      y: _y,
+    }));
+  };
 
   return (
     <Image
       image={currentImage}
       draggable
-      x={dragX}
-      y={dragY}
+      x={x}
+      y={y}
       onDragEnd={(e) => {
-        setDragX(e.target.x());
-        setDragY(e.target.y());
+        handleDrag(e.target.x(), e.target.y());
       }}
     />
   );

@@ -50,5 +50,6 @@ module.exports = {
       mjs: 'never',
     }],
     indent: ['error', 2],
+    'no-param-reassign': ['error', { props: false }],
   },
 };

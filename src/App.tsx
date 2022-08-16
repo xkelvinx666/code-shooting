@@ -1,21 +1,22 @@
-import { useState } from 'react';
 import { Provider } from 'react-redux';
+import { useMemo } from 'react';
 import {
-  Stage, Layer, Text,
+  Stage, Layer,
 } from 'react-konva';
 import store from './utils/store';
 import useScreenSize from './utils/hooks/screen-size';
-import Status from './constants/characters/status';
 import Map from './constants/environment/map';
 import Character from './characters/character';
 import Maps from './eniroment/maps';
+import ChangeStatusButtons from './menu/player-status/change-status-buttons';
+import { useAppSelector } from './utils/hooks/redux';
 
 export default function App() {
-  const [status, setStatus] = useState<Status>(Status.HOLD);
   const { width, height, isHorizontal } = useScreenSize();
-  const handleClick = (nextStatus: Status): void => {
-    setStatus(nextStatus);
-  };
+  const { players, currentPlayerId } = useAppSelector((state) => state.player.value);
+
+  const currentPlayer = useMemo(() => players
+    .find(({ id }) => id === currentPlayerId), [players, currentPlayerId]);
 
   return (
     <Stage
@@ -34,9 +35,15 @@ export default function App() {
       <Layer>
         <Provider store={store}>
           <Maps map={Map.DIRT} />
-          <Text x={150} text="hold" onClick={() => handleClick(Status.HOLD)} />
-          <Text x={100} text="running" onClick={() => handleClick(Status.RUNNING)} />
-          <Character x={50} y={100} name="player1" status={status} />
+          <ChangeStatusButtons />
+          {currentPlayer && (
+            <Character
+              x={currentPlayer.x}
+              y={currentPlayer.y}
+              name={currentPlayer.name}
+              status={currentPlayer.status}
+            />
+          )}
         </Provider>
       </Layer>
     </Stage>

@@ -18,7 +18,6 @@ const screenSizeSlice = createSlice({
   reducers: {
     setSize: (state, action: PayloadAction<IScreenSize>) => {
       const { height, width, isHorizontal } = action.payload;
-      // eslint-disable-next-line no-param-reassign
       state.value = {
         height,
         width,
