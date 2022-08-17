@@ -1,12 +1,14 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import Job from '../../constants/characters/job';
 import Status from '../../constants/characters/status';
 
 interface IPlayer {
   id: string;
+  job: Job,
+  status: Status,
   name?: string;
   x?: number;
   y?: number;
-  status?: Status,
 }
 
 const findPlayerById = (players: Array<IPlayer>, playerId: string): IPlayer | undefined => players
@@ -19,6 +21,7 @@ const playerSlice = createSlice({
       players: [{
         id: '111',
         name: 'test-name',
+        job: Job.ADVENTURER,
         status: Status.READY,
       }] as Array<IPlayer>,
       currentPlayerId: '111',

@@ -40,6 +40,7 @@ export default function Index() {
             <Character
               x={currentPlayer.x}
               y={currentPlayer.y}
+              job={currentPlayer.job}
               name={currentPlayer.name}
               status={currentPlayer.status}
             />

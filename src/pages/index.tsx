@@ -1,4 +1,5 @@
 import type { NextPage } from 'next';
+import Login from '../elements/login';
 import Head from 'next/head';
 
 const Main: NextPage = () => {
@@ -10,7 +11,7 @@ const Main: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div>登录界面</div>
+        <Login />
       </main>
     </>
   );

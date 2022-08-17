@@ -1,30 +1,18 @@
 import { useMemo } from 'react';
 import { Image } from 'react-konva';
 import useImage from 'use-image';
+import Job from '../../constants/characters/job';
 import useImageFrame from '../../utils/hooks/image-frame';
 import Status from '../../constants/characters/status';
 import { useAppDispatch } from '../../utils/hooks/redux';
 import { setPlayerLocation } from '../../utils/store/player';
-
-const posesConfig: {[key: number]: Array<string>} = {
-  [Status.READY]: [
-    '/assets/character/adventurer/Poses/adventurer_hold1.png',
-    '/assets/character/adventurer/Poses/adventurer_hold2.png',
-  ],
-  [Status.WALK]: [
-    '/assets/character/adventurer/Poses/adventurer_walk1.png',
-    '/assets/character/adventurer/Poses/adventurer_walk2.png',
-  ],
-  [Status.WIN]: [
-    '/assets/character/adventurer/Poses/adventurer_cheer1.png',
-    '/assets/character/adventurer/Poses/adventurer_cheer2.png',
-  ],
-};
+import getPoseConfig from '../../assets-configs/character-poses';
 
 interface ICharacterProps {
   x: number;
   y: number;
   name: string;
+  job: Job;
   status: Status;
 }
 
@@ -32,9 +20,10 @@ export default function Character({
   x,
   y,
   name,
+  job,
   status,
 }: ICharacterProps) {
-  const images = useMemo<Array<string>>(() => posesConfig[status], [status]);
+  const images = useMemo<Array<string>>(() => getPoseConfig(job)[status], [status]);
   const image = useImageFrame(images);
   const [currentImage] = useImage(image);
   const dispatch = useAppDispatch();
