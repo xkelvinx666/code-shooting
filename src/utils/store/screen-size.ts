@@ -10,9 +10,9 @@ const screenSizeSlice = createSlice({
   name: 'screenSize',
   initialState: {
     value: {
-      height: window.innerHeight,
-      width: window.innerWidth,
-      isHorizontal: window.innerHeight < window.innerWidth,
+      height: 0,
+      width: 0,
+      isHorizontal: true,
     } as IScreenSize,
   },
   reducers: {

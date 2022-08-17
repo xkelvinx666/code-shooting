@@ -1,5 +1,5 @@
 import { Image } from 'react-konva';
-import useImportImage from '../utils/hooks/import-image';
+import useImage from 'use-image';
 
 interface IImageButtonProps {
   x: number;
@@ -18,7 +18,7 @@ export default function ImageButton({
   image,
   onClick,
 }: IImageButtonProps) {
-  const currentImage = useImportImage(image);
+  const [currentImage] = useImage(image);
 
   return (
     <Image
