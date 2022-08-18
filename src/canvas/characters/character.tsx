@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { Image } from 'react-konva';
+import { Image, Text, Group } from 'react-konva';
 import useImage from 'use-image';
 import Job from '../../constants/characters/job';
 import useImageFrame from '../../utils/hooks/image-frame';
@@ -35,14 +35,18 @@ export default function Character({
   };
 
   return (
-    <Image
-      image={currentImage}
+    <Group 
       draggable
       x={x}
-      y={y}
+      y={y} 
       onDragEnd={(e) => {
         handleDrag(e.target.x(), e.target.y());
-      }}
-    />
+      }}>
+      <Text text={name} fill="#fff" />
+      <Image
+        image={currentImage}
+
+      />
+    </Group>
   );
 }

@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import screenSizeSliceReducer from './screen-size';
 import playerReducer from './player';
+import mapReducer from './map';
 
 const store = configureStore({
   reducer: {
     screenSize: screenSizeSliceReducer,
     player: playerReducer,
+    map: mapReducer,
   },
 });
 

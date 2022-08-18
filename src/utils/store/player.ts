@@ -55,6 +55,12 @@ const playerSlice = createSlice({
         currentPlayer.name = action.payload;
       }
     },
+    setPlayerJob(state, action: PayloadAction<Job>) {
+      const currentPlayer = findPlayerById(state.value.players, state.value.currentPlayerId);
+      if (currentPlayer) {
+        currentPlayer.job = action.payload;
+      }
+    },
     setPlayerLocation(state, action: PayloadAction<{x: number; y: number}>) {
       const currentPlayer = findPlayerById(state.value.players, state.value.currentPlayerId);
       if (currentPlayer) {
@@ -70,6 +76,7 @@ export const {
   setPlayerLocation,
   setPlayerStatus,
   setPlayerName,
+  setPlayerJob,
   setCurrentPlayerId,
 } = playerSlice.actions;
 

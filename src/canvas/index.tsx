@@ -5,7 +5,6 @@ import {
 } from 'react-konva';
 import store from '../utils/store';
 import useScreenSize from '../utils/hooks/screen-size';
-import Map from '../constants/environment/map';
 import Character from './characters/character';
 import Maps from './eniroment/maps';
 import ChangeStatusButtons from './menu/player-status/change-status-buttons';
@@ -14,6 +13,7 @@ import { useAppSelector } from '../utils/hooks/redux';
 export default function Index() {
   const { width, height, isHorizontal } = useScreenSize();
   const { players, currentPlayerId } = useAppSelector((state) => state.player.value);
+  const map = useAppSelector((state) => state.map.value);
 
   const currentPlayer = useMemo(() => players
     .find(({ id }) => id === currentPlayerId), [players, currentPlayerId]);
@@ -34,7 +34,7 @@ export default function Index() {
     >
       <Layer>
         <Provider store={store}>
-          <Maps map={Map.DIRT} />
+          <Maps map={map} />
           <ChangeStatusButtons />
           {currentPlayer && (
             <Character

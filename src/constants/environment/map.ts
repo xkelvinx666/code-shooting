@@ -1,8 +1,8 @@
 enum Map {
-  DIRT,
-  SAND,
-  GRASS,
-  WOOD
+  DIRT = 'dirt',
+  SAND = 'sand',
+  GRASS = 'grass',
+  WOOD = 'wood'
 }
 
 export default Map;
