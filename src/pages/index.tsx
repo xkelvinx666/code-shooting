@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
-import Login from '../elements/login';
 import Head from 'next/head';
+import Login from '../elements/login';
 
 const Main: NextPage = () => {
   return (
@@ -16,5 +16,16 @@ const Main: NextPage = () => {
     </>
   );
 };
+
+export async function getStaticProps({ locale }: { locale: string }) {
+  const text = await import(`../i18n/login/${locale}.json`);
+  return {
+    props: {
+      messages: JSON.parse(JSON.stringify(text)),
+    },
+  };
+}
+
+
 
 export default Main;

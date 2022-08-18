@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
-import { useSelector } from 'react-redux';
 import { Image } from 'react-konva';
+import { useAppSelector} from '../../utils/hooks/redux';
 import getMapConfig from '../../assets-configs/map';
 import useImage from 'use-image';
 import useImageFrame from '../../utils/hooks/image-frame';
@@ -14,7 +14,7 @@ export default function Maps({ map }: IMapsProps) {
   const images = useMemo<Array<string>>(() => getMapConfig()[map], [map]);
   const image = useImageFrame(images);
   const [currentImage] = useImage(image);
-  const { height, width, isHorizontal } = useSelector((state) => state.screenSize.value);
+  const { height, width, isHorizontal } = useAppSelector((state) => state.screenSize.value);
 
   return (
     <Image

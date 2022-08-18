@@ -15,8 +15,8 @@ export default function Index() {
   const { players, currentPlayerId } = useAppSelector((state) => state.player.value);
   const map = useAppSelector((state) => state.map.value);
 
-  const currentPlayer = useMemo(() => players
-    .find(({ id }) => id === currentPlayerId), [players, currentPlayerId]);
+  const currentPlayer = useMemo(() => (players
+    .find(({ id }) => id === currentPlayerId)), [players, currentPlayerId]);
 
   return (
     <Stage
@@ -38,10 +38,10 @@ export default function Index() {
           <ChangeStatusButtons />
           {currentPlayer && (
             <Character
-              x={currentPlayer.x}
-              y={currentPlayer.y}
+              x={currentPlayer.x || 0}
+              y={currentPlayer.y || 0}
               job={currentPlayer.job}
-              name={currentPlayer.name}
+              name={currentPlayer.name || ''}
               status={currentPlayer.status}
             />
           )}

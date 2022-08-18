@@ -4,6 +4,7 @@ import Head from 'next/head';
 
 const DynamicHeader = dynamic(() => import('../canvas'), {
   ssr: false,
+  loading: () => <header />,
 });
 
 const Main: NextPage = () => {

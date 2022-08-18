@@ -1,6 +1,6 @@
 import Map from '../constants/environment/map';
 
-export default function getMapConfig(): {[key: number]: Array<string>}{
+export default function getMapConfig(): {[key: string]: Array<string>}{
   return {
     [Map.DIRT]: [
       '/assets/environment/maps/game_background_1.png',
