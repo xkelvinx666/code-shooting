@@ -1,20 +1,32 @@
-app: code-game-next
-stage: dev
-component: nextjs
-name: code-game-next
-
+component: http
+name: code-game-nextjs-ebg1FKdaHx
 inputs:
-  src: ./
-  region: ap-guangzhou
-  functionConf:
-    name: ${name}
-    runtime: Nodejs12.16
-  apigatewayConf:
+  src:
+    dist: ./
+    hook: npm run build
+    exclude:
+      - .env
+  faas:
+    runtime: Nodejs16.17
+    framework: nextjs
+    name: '${name}'
+    eip: false
+    timeout: 3
+    memorySize: 512
+    tags: []
+    environments: []
+    layers:
+      - name: '${output:${stage}:${app}:nnn-layer.name}'
+        version: '${output:${stage}:${app}:nnn-layer.version}'
+  apigw:
     protocols:
       - http
       - https
+    timeout: 60
     environment: release
-  staticConf:
-    cosConf:
-      replace: true
-      bucket: code-game-nextjs
+    customDomains: []
+  region: ap-guangzhou
+  isAutoCiDeploy: false
+org: '1253213981'
+app: code-game
+stage: dev
