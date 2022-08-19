@@ -6,14 +6,6 @@ jobs:
     steps:
       - name: clone local repository
         uses: actions/checkout@v2
-      - name: install pnpm
-        run: npm install -g pnpm
-      - name: install dependency
-        run: pnpm install
-      - name: build
-        run: npm run build
-      - name: prepare deploy
-        run: mkdir sls && mv .next sls && mv next.config.js scf_bootstrap serverless.yml sls && mv package-serverless.json sls/package.json && cd sls && npm i 
       - name: deploy serverless
         uses: woodyyan/tencent-serverless-action@main
         env:
