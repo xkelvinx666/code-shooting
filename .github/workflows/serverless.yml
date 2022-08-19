@@ -13,7 +13,7 @@ jobs:
       - name: build
         run: npm run build
       - name: prepare deploy
-        run: mkdir sls && mv .next sls && mv next.config.js scf_bootstrap serverless.yml sls && cd sls && npm init -y && npm i next react react-dom
+        run: mkdir sls && mv .next sls && mv next.config.js scf_bootstrap serverless.yml sls && mac package-serverless.json sls/package.json && cd sls && npm i 
       - name: deploy serverless
         uses: woodyyan/tencent-serverless-action@main
         env:
