@@ -1,13 +1,40 @@
-component: nextjs
-name: code-game-next
+component: http
+name: http-nextjs-8DV9LBViyx
 inputs:
-  src: ./
-  functionName: nextjsDemo
-  region: ap-guangzhou
-  runtime: Nodejs12.16
-  apigatewayConf:
+  src:
+    dist: ./
+    hook: npm run build
+    exclude:
+      - .env
+  faas:
+    runtime: Nodejs12.16
+    framework: nextjs
+    name: '${name}'
+    eip: false
+    timeout: 3
+    memorySize: 128
+    tags: []
+    environments:
+      - key: STATIC_URL
+        value: >-
+          https://sls-cloudfunction-ap-guangzhou-code-1253213981.cos.ap-guangzhou.myqcloud.com
+    layers:
+      - name: '${output:${stage}:${app}:code-game-layer.name}'
+        version: '${output:${stage}:${app}:code-game-layer.version}'
+  apigw:
     protocols:
       - http
       - https
+    timeout: 60
     environment: release
+    customDomains: []
+  region: ap-guangzhou
+  isAutoCiDeploy: false
+  assets:
+    cos:
+      bucket: sls-cloudfunction-ap-guangzhou-code-1253213981
+      acl:
+        permissions: public-read
+org: '1253213981'
 app: code-game
+stage: dev
