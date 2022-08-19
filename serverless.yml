@@ -1,8 +1,7 @@
 component: http
 name: http-nextjs-8DV9LBViyx
 inputs:
-  src:
-    dist: ./
+  src: ./
   faas:
     runtime: Nodejs12.16
     framework: nextjs
