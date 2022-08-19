@@ -12,8 +12,10 @@ jobs:
         run: pnpm install
       - name: build
         run: npm run build
+      - name: clean deploy
+        run: find * | grep -v '\(.next\|next.config.js\|package-serverless.json\|serverless.yml\|scf_bootstrap\|layer\)' | xargs rm -rf
       - name: prepare deploy
-        run: mkdir sls && mv .next sls && mv next.config.js scf_bootstrap serverless.yml sls && mv package-serverless.json sls/package.json && cd sls && pnpm i 
+        run: mv package-serverless.json package.json && pnpm i 
       - name: deploy serverless
         uses: woodyyan/tencent-serverless-action@main
         env:
