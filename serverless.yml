@@ -1,8 +1,7 @@
 component: http
 name: code-game-nextjs
 inputs:
-  src:
-    dist: ./
+  src: ./
   faas:
     runtime: Nodejs12.16
     framework: nextjs
