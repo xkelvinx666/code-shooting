@@ -13,7 +13,7 @@ jobs:
       - name: build
         run: npm run build
       - name: prepare deploy
-        run: find * | grep -v '\(node_modules\|.next\|next.config.js\|package.json\|serverless.yml\|scf_bootstrap\)' | xargs rm -rf
+        run: find * | grep -v '\(node_modules\|.next\|next.config.js\|package.json\|serverless.yml\|scf_bootstrap\|src\|public)' | xargs rm -rf
       - name: deploy serverless
         uses: woodyyan/tencent-serverless-action@main
         env:

@@ -3,9 +3,6 @@ name: http-nextjs-8DV9LBViyx
 inputs:
   src:
     dist: ./
-    hook: npm run build
-    exclude:
-      - .env
   faas:
     runtime: Nodejs12.16
     framework: nextjs
