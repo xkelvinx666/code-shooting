@@ -3,9 +3,6 @@ name: code-game-nextjs-ebg1FKdaHx
 inputs:
   src:
     dist: ./
-    hook: npm run build
-    exclude:
-      - .env
   faas:
     runtime: Nodejs16.17
     framework: nextjs
