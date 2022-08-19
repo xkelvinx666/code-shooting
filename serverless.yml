@@ -4,7 +4,7 @@ inputs:
   src:
     dist: ./
   faas:
-    runtime: Nodejs14.18
+    runtime: Nodejs12.10
     framework: nextjs
     name: '${name}'
     eip: false
