@@ -13,7 +13,7 @@ jobs:
       - name: build
         run: npm run build
       - name: prepare deploy
-        run: mkdir sls && mv .next sls && mv next.config.js sls && cd sls && pnpm i next && cd ..
+        run: mkdir sls && mv .next sls && mv next.config.js sls && cd sls && npm init -y && pnpm i next && cd ..
       - name: deploy serverless
         uses: woodyyan/tencent-serverless-action@main
         env:
