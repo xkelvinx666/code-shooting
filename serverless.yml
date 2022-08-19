@@ -1,9 +1,8 @@
-component: http
+component: '@serverless/tencent-nextjs'
 name: http-nextjs-8DV9LBViyx
 inputs:
   src:
     dist: ./
-    hook: npm install && npm run build
   faas:
     runtime: Nodejs12.16
     framework: nextjs
