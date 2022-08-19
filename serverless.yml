@@ -2,7 +2,7 @@ component: nextjs
 name: code-game-next
 inputs:
   src:
-    src: ./sls
+    src: ./
   functionName: nextjsDemo
   region: ap-guangzhou
   runtime: Nodejs12.16
