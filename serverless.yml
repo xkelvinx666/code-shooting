@@ -4,10 +4,7 @@ component: nextjs
 name: code-game-next
 
 inputs:
-  src:
-    dist: ./
-    exclude:
-      - .env
+  src: ./
   region: ap-guangzhou
   functionConf:
     name: ${name}
