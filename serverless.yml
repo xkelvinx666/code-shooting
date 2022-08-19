@@ -1,4 +1,4 @@
-component: '@serverless/tencent-nextjs'
+component: http
 name: http-nextjs-8DV9LBViyx
 inputs:
   src:
