@@ -2,12 +2,7 @@ component: nextjs
 name: code-game-next
 inputs:
   src:
-    src: ./
-    exclude:
-      - .env
-      - .git
-      - .idea
-      - node_modules
+    src: ./sls
   functionName: nextjsDemo
   region: ap-guangzhou
   runtime: Nodejs12.16
