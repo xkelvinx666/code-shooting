@@ -1,0 +1,19 @@
+component: nextjs
+name: code-game-next
+inputs:
+  src:
+    src: ./
+    exclude:
+      - .env
+      - .git
+      - .idea
+      - node_modules
+  functionName: nextjsDemo
+  region: ap-guangzhou
+  runtime: Nodejs12.16
+  apigatewayConf:
+    protocols:
+      - http
+      - https
+    environment: release
+app: code-game

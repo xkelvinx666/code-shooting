@@ -1,0 +1,21 @@
+on: push
+jobs:
+  main:
+    name: deploy serverless
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone local repository
+        uses: actions/checkout@v2
+      - name: install pnpm
+        run: npm install -g pnpm
+      - name: install dependency
+        run: pnpm install
+      - name: build
+        run: npm build
+      - name: deploy serverless
+        uses: woodyyan/tencent-serverless-action@main
+        env:
+          STAGE: dev
+          SERVERLESS_PLATFORM_VENDOR: tencent
+          TENCENT_SECRET_ID: ${{ secrets.TENCENT_SECRET_ID }}
+          TENCENT_SECRET_KEY: ${{ secrets.TENCENT_SECRET_KEY }}
