@@ -6,7 +6,6 @@ name: code-game-next
 inputs:
   src:
     dist: ./
-    hook: npm run build
     exclude:
       - .env
   region: ap-guangzhou
