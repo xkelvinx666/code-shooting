@@ -1,6 +1,6 @@
-/** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production';
-const nextConfig = {
+
+module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   assetPrefix: isProd ? process.env.STATIC_URL : '',
@@ -9,5 +9,3 @@ const nextConfig = {
     defaultLocale: 'en-US',
   }
 };
-
-module.exports = nextConfig;

@@ -7,14 +7,17 @@ inputs:
     exclude:
       - .env
   faas:
-    runtime: Nodejs16.13
+    runtime: Nodejs12.16
     framework: nextjs
     name: '${name}'
     eip: false
     timeout: 3
     memorySize: 512
     tags: []
-    environments: []
+    environments:
+      - key: STATIC_URL
+        value: >-
+          https://sls-layer-ap-guangzhou-code-1253213981.cos.ap-guangzhou.myqcloud.com
     layers:
       - name: '${output:${stage}:${app}:code-game-layer.name}'
         version: '${output:${stage}:${app}:code-game-layer.version}'
@@ -27,6 +30,11 @@ inputs:
     customDomains: []
   region: ap-guangzhou
   isAutoCiDeploy: false
+  assets:
+    cos:
+      bucket: sls-layer-ap-guangzhou-code-1253213981
+      acl:
+        permissions: public-read
 org: '1253213981'
 app: code-game
 stage: dev
