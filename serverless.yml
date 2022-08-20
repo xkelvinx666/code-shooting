@@ -6,7 +6,7 @@ name: code-game-nextjs
 inputs:
   src:
     dist: ./
-    hook: npm run build
+    hook: npm install && npm run build
     exclude:
       - .env
   region: ap-guangzhou
