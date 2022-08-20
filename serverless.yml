@@ -12,7 +12,7 @@ inputs:
   region: ap-guangzhou
   functionConf:
     name: ${name}
-    runtime: Nodejs16.17
+    runtime: Nodejs12.16
   apigatewayConf:
     protocols:
       - http
