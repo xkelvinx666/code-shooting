@@ -16,9 +16,6 @@ inputs:
       - key: STATIC_URL
         value: >-
           https://sls-layer-ap-guangzhou-code-1253213981.cos.ap-guangzhou.myqcloud.com
-    layers:
-      - name: '${output:${stage}:${app}:code-game-layer.name}'
-        version: '${output:${stage}:${app}:code-game-layer.version}'
   apigw:
     protocols:
       - http
