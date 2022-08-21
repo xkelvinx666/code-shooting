@@ -6,6 +6,12 @@ jobs:
     steps:
       - name: clone local repository
         uses: actions/checkout@v2
+      - name: install dependency
+        run: npm install --legacy-peer-deps
+      - name: build
+        run: npm run build
+      - name: clean deploy
+        run: find * | grep -v '\(.next\|next.config.js\|serverless.yml\|scf_bootstrap\|src\|.env\|package.json\|layer\)' | xargs rm -rf
       - name: deploy serverless
         uses: woodyyan/tencent-serverless-action@main
         env:
