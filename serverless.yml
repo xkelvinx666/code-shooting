@@ -1,13 +1,23 @@
 component: http
-name: code-game-ebg1FKdaHx
+name: code-game
 inputs:
   src:
-    dist: ./
+    src: ./
     exclude:
       - node_modules
       - .github
       - .husky
-      - layer
+      - commitlint.config.js
+      - jest.config.ts
+      - next-env.d.ts
+      - tsconfig.json
+      - tsconfig.test.json
+      - tailwind.config.js
+      - setupTests.ts
+      - postcss.config.js
+      - .eslintrc.json
+      - .env
+      - gitignore
   faas:
     runtime: Nodejs16.13
     framework: nextjs
