@@ -3,6 +3,11 @@ name: code-game-ebg1FKdaHx
 inputs:
   src:
     dist: ./
+    exclude:
+      - node_modules
+      - .github
+      - .husky
+      - layer
   faas:
     runtime: Nodejs16.13
     framework: nextjs
@@ -15,6 +20,9 @@ inputs:
       - key: STATIC_URL
         value: >-
           https://sls-layer-ap-guangzhou-code-1253213981.cos.ap-guangzhou.myqcloud.com
+    layers:
+      - name: '${output:${stage}:${app}:code-game-layer.name}'
+        version: '${output:${stage}:${app}:code-game-layer.version}'
   apigw:
     protocols:
       - http
