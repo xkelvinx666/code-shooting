@@ -7,7 +7,7 @@ inputs:
   name: code-game-layer
   region: ap-tokyo
   src:
-    src: ../node_modules
+    src: ./node_modules
     targetDir: node_modules
   runtimes:
     - Nodejs16.13
