@@ -6,10 +6,21 @@ jobs:
     steps:
       - name: clone local repository
         uses: actions/checkout@v2
+      - name: install needed modules
+        run: npm install --omit optional --omit dev --legacy-peer-dep --production
+      - name: prepareLayer
+        run: mv node_modules ./layer/node_modules && cd layer
+      - name: deploy layer
+        uses: woodyyan/tencent-serverless-action@main
+        env:
+          STAGE: dev
+          SERVERLESS_PLATFORM_VENDOR: tencent
+          TENCENT_SECRET_ID: ${{ secrets.TENCENT_SECRET_ID }}
+          TENCENT_SECRET_KEY: ${{ secrets.TENCENT_SECRET_KEY }}
       - name: install pnpm
         run: npm install pnpm -g
       - name: install dependency
-        run: pnpm install
+        run: cd ../ && rm -rf layer && pnpm install
       - name: build
         run: npm run build
       - name: deploy serverless

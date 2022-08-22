@@ -29,7 +29,7 @@ inputs:
     environments:
       - key: STATIC_URL
         value: >-
-          https://code-game-1253213981.cos.ap-tokyo.myqcloud.com
+          https://sls-cloudfunction-ap-tokyo-code-1253213981.cos.ap-tokyo.myqcloud.com
     layers:
       - name: '${output:${stage}:${app}:code-game-layer.name}'
         version: '${output:${stage}:${app}:code-game-layer.version}'
@@ -44,7 +44,7 @@ inputs:
   isAutoCiDeploy: false
   assets:
     cos:
-      bucket: code-game-1253213981
+      bucket: sls-cloudfunction-ap-tokyo-code-1253213981
       acl:
         permissions: public-read
 org: '1253213981'
