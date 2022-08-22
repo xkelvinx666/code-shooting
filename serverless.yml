@@ -3,7 +3,6 @@ name: code-game-ebg1FKdaHx
 inputs:
   src:
     dist: ./
-    hook: npm install --omit optional --omit dev --legacy-peer-dep
   faas:
     runtime: Nodejs16.13
     framework: nextjs
