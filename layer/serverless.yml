@@ -5,7 +5,7 @@ component: layer
 name: code-game-layer
 inputs:
   name: code-game-layer
-  region: ap-guangzhou
+  region: ap-tokyo
   src:
     src: ../node_modules
     targetDir: node_modules
