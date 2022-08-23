@@ -1,15 +1,10 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
-import Login from '../elements/login';
 
 const Main: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>Code Game</title>
-      </Head>
       <main>
-        <Login />
+        <div>you are offline</div>
       </main>
     </>
   );
