@@ -27,6 +27,7 @@ export default function ImageButton({
       y={y}
       height={height}
       width={width}
+      alt="button"
       onClick={onClick}
     />
   );

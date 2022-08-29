@@ -21,7 +21,7 @@ export default function SelectOptions<T> ({ name, active, options, onClick }: IS
         </div>
       );
     });
-  }, [options]);
+  }, [options, active, onClick]);
 
   return (
     <>

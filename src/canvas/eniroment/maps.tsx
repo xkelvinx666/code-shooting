@@ -21,6 +21,7 @@ export default function Maps({ map }: IMapsProps) {
       image={currentImage}
       height={isHorizontal ? height : width}
       width={isHorizontal ? width : height}
+      alt="map"
     />
   );
 }

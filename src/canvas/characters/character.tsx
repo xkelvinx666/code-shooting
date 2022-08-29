@@ -23,7 +23,7 @@ export default function Character({
   job,
   status,
 }: ICharacterProps) {
-  const images = useMemo<Array<string>>(() => getPoseConfig(job)[status], [status]);
+  const images = useMemo<Array<string>>(() => getPoseConfig(job)[status], [status, job]);
   const image = useImageFrame(images);
   const [currentImage] = useImage(image);
   const dispatch = useAppDispatch();
@@ -45,7 +45,7 @@ export default function Character({
       <Text text={name} fill="#fff" />
       <Image
         image={currentImage}
-
+        alt="character"
       />
     </Group>
   );

@@ -32,7 +32,7 @@ function useScreenSize(): IScreenSize {
     return () => {
       resizeObserver.disconnect();
     };
-  }, [document.body]);
+  }, [resizeObserver]);
 
   return {
     height,
