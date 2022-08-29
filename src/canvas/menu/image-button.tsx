@@ -22,7 +22,7 @@ export default function ImageButton({
 
   return (
     <Image
-      image={currentImage}
+      image={currentImage as CanvasImageSource}
       x={x}
       y={y}
       height={height}

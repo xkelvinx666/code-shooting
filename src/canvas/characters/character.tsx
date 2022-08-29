@@ -44,7 +44,7 @@ export default function Character({
       }}>
       <Text text={name} fill="#fff" />
       <Image
-        image={currentImage}
+        image={currentImage as CanvasImageSource}
         alt="character"
       />
     </Group>

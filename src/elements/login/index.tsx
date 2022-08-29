@@ -27,7 +27,7 @@ export default function Login() {
   return (
     <>
       <div className="fixed h-screen w-screen z-0">
-        <Image src="/assets/environment/login/login-background.png" layout={'fill'} />
+        <Image src="/assets/environment/login/login-background.png" layout={'fill'} alt="background" />
       </div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow z-10 bg-white p-4 rounded-l max-w-2xl">
         <SelectOptions<Map> name={t('map')} active={selectedMap} options={mapOptions} onClick={(val) => setSelectedMap(val)} />

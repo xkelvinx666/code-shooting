@@ -10,15 +10,11 @@ function useImageFrame(images: Array<string>): string {
   const requestRef = useRef<number>();
   const renderFPS = (1 / maxLen) * 300;
 
-  const nextImage = () => {
-    setImageIndex((preIndex) => (preIndex + 1) % maxLen);
-  };
-
   useEffect(() => {
     const playImage = (timestamp: number) => {
       if (timestamp - lastRenderTimestamp > renderFPS) {
         setLastRenderTimestamp(timestamp);
-        nextImage();
+        setImageIndex((preIndex) => (preIndex + 1) % maxLen);
       }
       requestRef.current = requestAnimationFrame(playImage);
     };
@@ -28,7 +24,7 @@ function useImageFrame(images: Array<string>): string {
         cancelAnimationFrame(requestRef.current);
       }
     };
-  }, [imageIndex, requestRef]);
+  }, [imageIndex, requestRef, lastRenderTimestamp, renderFPS, maxLen]);
 
   return currentImage;
 }

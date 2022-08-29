@@ -1,4 +1,7 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
+
+const APP_NAME = 'code_game';
+const APP_DESCRIPTION = 'code game build in pwa';
 
 class MyDocument extends Document {
   render() {
@@ -6,6 +9,9 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="manifest" href="/manifest.json" />
+          <meta name='application-name' content={APP_NAME} />
+          <meta name='apple-mobile-web-app-title' content={APP_NAME} />
+          <meta name='description' content={APP_DESCRIPTION} />
           <link rel="apple-touch-icon" href="/logo-128x128.png" />
           <link rel="theme-color" href="#fff" />
           <meta name="application-name" content="Code Game" />
@@ -30,14 +36,7 @@ class MyDocument extends Document {
           <link rel="manifest" href="/manifest.json" />
           <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#5bbad5" />
           <link rel="shortcut icon" href="/favicon.ico" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
 
-          <meta property="og:type" content="website" />
-          <meta property="og:title" content="PWA App" />
-          <meta property="og:description" content="Best PWA App in the world" />
-          <meta property="og:site_name" content="PWA App" />
-          <meta property="og:url" content="https://yourdomain.com" />
-          <meta property="og:image" content="https://yourdomain.com/icons/apple-touch-icon.png" />
           <meta
             name='viewport'
             content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover'
@@ -50,6 +49,10 @@ class MyDocument extends Document {
       </Html>
     );
   }
+}
+
+export async function getInitialProps(ctx: DocumentContext) {
+  return await Document.getInitialProps(ctx);
 }
 
 export default MyDocument;

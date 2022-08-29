@@ -18,7 +18,7 @@ export default function Maps({ map }: IMapsProps) {
 
   return (
     <Image
-      image={currentImage}
+      image={currentImage as CanvasImageSource}
       height={isHorizontal ? height : width}
       width={isHorizontal ? width : height}
       alt="map"
