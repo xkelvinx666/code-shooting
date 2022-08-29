@@ -3,10 +3,11 @@ const runtimeCaching = require('next-pwa/cache');
 const isProd = process.env.NODE_ENV === 'production';
 
 module.exports = withPWA({
-  dest: 'public',
+  disable: !isProd,
   register: true,
   skipWaiting: true,
-  runtimeCaching
+  runtimeCaching,
+  sw: '/sw.js',
 })({
   reactStrictMode: true,
   assetPrefix: isProd ? process.env.STATIC_URL : '/',
