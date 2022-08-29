@@ -16,16 +16,18 @@ function useScreenSize(): IScreenSize {
 
   const dispatch = useDispatch();
 
-  const resizeObserver = new ResizeObserver(throttle((e: Array<ResizeObserverEntry>) => {
-    const [{ contentRect }] = e;
-    setHeight(contentRect.height);
-    setWidth(contentRect.width);
-    dispatch(setSize({
-      height: contentRect.height,
-      width: contentRect.width,
-      isHorizontal: contentRect.height < contentRect.width,
-    }));
-  }, 200));
+  const resizeObserver = useMemo(() => {
+    return new ResizeObserver(throttle((e: Array<ResizeObserverEntry>) => {
+      const [{ contentRect }] = e;
+      setHeight(contentRect.height);
+      setWidth(contentRect.width);
+      dispatch(setSize({
+        height: contentRect.height,
+        width: contentRect.width,
+        isHorizontal: contentRect.height < contentRect.width,
+      }));
+    }, 200));
+  }, [setHeight, setWidth, dispatch]);
 
   useEffect(() => {
     resizeObserver.observe(document.body);
